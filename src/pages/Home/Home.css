@@ -1,0 +1,578 @@
+.banner-heading{
+font-size: 40px;
+color: #fff;
+font-weight: 700;
+text-align: start;
+
+}
+.banner-hheading{
+font-size: 45px;
+color: #fff;
+font-weight: 700;
+text-align: start;
+
+}
+.Carousel .carousel-control-prev .visually-hidden{
+  display:none !important;
+}
+.Carousel .carousel-control-prev .visually-hidden{
+  display:none !important;
+}
+.about-us-sec-container {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: #ffffff; /* white background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.about-us-sec-content {
+  max-width: 900px;
+}
+
+.about-us-sec-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #555;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.about-us-sec-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.about-us-sec-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+/* our teams css starts  */
+.our-team-section {
+  background-color: #f4f4f4;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.our-team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.our-team-subtitle {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.our-team-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 40px;
+}
+
+.our-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.our-team-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.our-team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.our-team-img-wrapper {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #ee661c96;
+}
+
+.our-team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.our-team-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin: 10px 0 5px;
+}
+
+.our-team-role {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.our-team-company {
+  font-size: 13px;
+  font-weight: 500;
+  color: #e3632e;
+  line-height: 1.4;
+}
+
+.our-team-btn {
+  margin-top: 40px;
+  background: linear-gradient(to right, #8a0b0b, #2c005e);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.our-team-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .our-team-title {
+    font-size: 28px;
+  }
+}
+
+/* our teams css ends  */
+/* Our Strategy section css starts */
+.our-strategy-section {
+  background: #fff;
+}
+
+.our-strategy-subtitle {
+  color: #d60000;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.our-strategy-title {
+  font-weight: 700;
+  color: #111;
+  font-size: 32px;
+}
+
+.our-strategy-item {
+  text-align: center;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.our-strategy-circle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: serif;
+  font-size: 22px;
+  color: #d60000;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+}
+
+.our-strategy-circle.active {
+  background-color: #d60000;
+  color: #fff;
+  border-color: #d60000;
+}
+
+.our-strategy-circle:hover {
+  background-color: #d60000;
+  color: #fff;
+  border-color: #d60000;
+}
+
+.our-strategy-heading {
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color: #000;
+}
+
+.our-strategy-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Connector line for items except the last one */
+.our-strategy-item.has-connector::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background: #e3632e;
+  top: 40px; /* Center vertically with the circle */
+  right: -35%;
+  z-index: 1;
+}
+
+/* Remove connector on mobile */
+@media (max-width: 768px) {
+  .our-strategy-title {
+    font-size: 26px;
+  }
+
+  .our-strategy-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+  }
+
+  .our-strategy-text {
+    font-size: 13px;
+  }
+
+  .our-strategy-item.has-connector::after {
+    display: none;
+  }
+}
+
+/* Alternative mobile layout with vertical connectors */
+@media (max-width: 768px) {
+  .our-strategy-item.has-connector::after {
+    display: block;
+    width: 2px;
+    height: 40px;
+    top: 100%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+/* Our Strategy section css ends */
+/* our-events section css starts  */
+.our-events-section {
+  background: #fafafa;
+}
+
+.our-events-subtitle {
+  color: #d60000;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.our-events-title {
+  font-weight: 700;
+  color: #111;
+  font-size: 32px;
+}
+
+.our-events-card {
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.our-events-card:hover {
+  transform: translateY(-5px);
+  border-color: #d60000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.our-events-img-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.our-events-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.our-events-card:hover .our-events-img {
+  transform: scale(1.05);
+}
+
+.our-events-content {
+  padding: 15px 10px 25px;
+}
+
+.our-events-heading {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.our-events-location {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.our-events-link {
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #e5622c;
+  transition: all 0.3s ease;
+}
+
+.our-events-link:hover {
+  color: #d60000;
+}
+
+.our-events-link span {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .our-events-title {
+    font-size: 26px;
+  }
+
+  .our-events-img-wrapper {
+    height: 150px;
+  }
+}
+
+/* Logo Partner Section */
+.logo-partner-section {
+  padding: 60px 0;
+  background: #f8f9fa;
+}
+
+.logo-partner-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Desktop Grid Layout */
+.logo-partner-grid {
+  margin-bottom: 10px;
+}
+
+.logo-partner-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-partner-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 100%;
+  max-width: 180px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.logo-partner-image {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Carousel */
+.logo-partner-mobile-carousel {
+  margin-bottom: 30px;
+}
+
+.logo-partner-carousel-inner {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 10px 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.logo-partner-carousel-inner::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.logo-partner-carousel-inner .logo-partner-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-width: 150px;
+}
+
+/* Read More Button */
+.logo-partner-readmore-btn {
+  background: #b40303;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logo-partner-readmore-btn:hover {
+  background: #8b0000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 3, 3, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-partner-section {
+    padding: 40px 0;
+  }
+  
+  .logo-partner-title {
+    font-size: 2rem;
+  }
+  
+  .logo-partner-card {
+    height: 100px;
+    padding: 15px;
+    max-width: 140px;
+  }
+  
+  .logo-partner-image {
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-partner-card {
+    height: 80px;
+    padding: 10px;
+    max-width: 120px;
+  }
+  
+  .logo-partner-image {
+    max-height: 60px;
+  }
+  
+  .logo-partner-readmore-btn {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+/* banner css  */
+/* Base slider container */
+.banner-slider {
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Image styling */
+.banner-img {
+  width: 100%;
+  height: auto;
+  min-height: 100vh; /* fill viewport height */
+  display: block;
+  object-fit: cover; /* crop perfectly without black edges */
+  object-position: center;
+  background-color: #000;
+}
+
+/* Carousel core fix */
+.carousel,
+.carousel-inner,
+.carousel-item {
+  width: 100%;
+  background-color: #000 !important;
+}
+
+/* Ensure smooth transitions */
+.carousel-item {
+  transition: transform 1s ease-in-out !important;
+}
+
+/* Navigation icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%) brightness(200%);
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Indicators */
+.carousel-indicators [data-bs-target] {
+  background-color: #fff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.carousel-indicators .active {
+  background-color: #007bff; /* blue highlight */
+  opacity: 1;
+}
+
