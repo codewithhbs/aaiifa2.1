@@ -1,100 +1,124 @@
-import React, { useState } from 'react';
-import './AIIFAMembershipForm.css';
+import React, { useState } from "react";
+import "./AIIFAMembershipForm.css";
+
+const defaultFormState = {
+  companyName: "",
+  factoryDistrict: "",
+  factoryCity: "",
+  factoryPhone: "",
+  factoryPinCode: "",
+  factoryMobile: "",
+  factoryEmail1: "",
+  factoryEmail2: "",
+  correspondenceDistrict: "",
+  correspondenceCity: "",
+  correspondencePinCode: "",
+  correspondenceMobile: "",
+  correspondencePhone: "",
+  correspondenceEmail1: "",
+  correspondenceEmail2: "",
+  representativeName: "",
+  designation: "",
+  representativeMobile: "",
+  representativePinCode: "",
+  representativeEmail: "",
+  gstNumber: "",
+  furnaceCapacity: "",
+  furnaceMake: "",
+  numberOfCrucible: "",
+  bisNumber: "",
+  productIngot: false,
+  productBillet: false,
+  bisYes: false,
+  bisNo: false,
+  bisAF: false,
+  driIron: "",
+  pelletIron: "",
+  importedScrap: "",
+  indigenousScrap: "",
+
+  // Section 7
+  dinManufacturerY: false,
+  dinManufacturerN: false,
+  processRouteGasBased: false,
+  processRouteCoalBased: false,
+  technology: "",
+  annualCapacity: "",
+  pelletProcess: "",
+  pelletAnnualCapacity: "",
+
+  // Section 8
+  rollingMillIntegrated: false,
+  rollingMillSisterConcern: false,
+
+  // Section 9
+  millCapacityRoughing: "",
+  millCapacityIntermediate: "",
+  millCapacityFinishing: "",
+
+  // Section 10
+  productTMT: false,
+  productStructure: false,
+  productOther: false,
+  otherProductName: "",
+
+  // Section 11
+  brandName: "",
+  powerConnectingLoad: "",
+
+  // Section 12
+  procurementSelfGenerating: false,
+  procurementState: false,
+  procurementOpenAccess: false,
+
+  // Section 14
+  bisCertificationMark: "",
+};
 
 const AIIFAMembershipForm = () => {
-  const [formData, setFormData] = useState({
-    // Previous sections data remains the same...
-    companyName: '',
-    factoryDistrict: '',
-    factoryCity: '',
-    factoryPhone: '',
-    factoryPinCode: '',
-    factoryMobile: '',
-    factoryEmail1: '',
-    factoryEmail2: '',
-    correspondenceDistrict: '',
-    correspondenceCity: '',
-    correspondencePinCode: '',
-    correspondenceMobile: '',
-    correspondencePhone: '',
-    correspondenceEmail1: '',
-    correspondenceEmail2: '',
-    representativeName: '',
-    designation: '',
-    representativeMobile: '',
-    representativePinCode: '',
-    representativeEmail: '',
-    gstNumber: '',
-    furnaceCapacity: '',
-    furnaceMake: '',
-    numberOfCrucible: '',
-    bisNumber: '',
-    productIngot: false,
-    productBillet: false,
-    bisYes: false,
-    bisNo: false,
-    bisAF: false,
-    driIron: '',
-    pelletIron: '',
-    importedScrap: '',
-    indigenousScrap: '',
-
-    // New Section 7
-    dinManufacturerY: false,
-    dinManufacturerN: false,
-    processRouteGasBased: false,
-    processRouteCoalBased: false,
-    technology: '',
-    annualCapacity: '',
-    pelletManufacturer: '',
-    pelletProcess: '',
-    pelletAnnualCapacity: '',
-
-    // Section 8
-    rollingMillIntegrated: false,
-    rollingMillSisterConcern: false,
-
-    // Section 9
-    millCapacityRoughing: '',
-    millCapacityIntermediate: '',
-    millCapacityFinishing: '',
-
-    // Section 10
-    productTMT: false,
-    productStructure: false,
-    productOther: false,
-    otherProductName: '',
-
-    // Section 11
-    brandName: '',
-    powerConnectingLoad: '',
-
-    // Section 12
-    procurementSelfGenerating: false,
-    procurementState: false,
-    procurementOpenAccess: false,
-
-    // Section 14
-    bisCertificationMark: ''
-  });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [formData, setFormData] = useState(defaultFormState);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: type === 'checkbox' ? checked : value
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+
+    try {
+      const response = await fetch("http://localhost:5000/api/membership", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage("Membership submitted successfully!");
+
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 4000);
+
+        setFormData(defaultFormState);
+      } else {
+        alert("Error: " + result.message);
+      }
+    } catch (error) {
+      alert("Failed to submit form.");
+    }
   };
 
   return (
     <div className="aiifa-form-container">
       <div className="aiifa-header">
+        
         <div className="association-name">
           AIIFA Sustainable Steel Manufacturers Association
         </div>
@@ -129,6 +153,7 @@ const AIIFAMembershipForm = () => {
               onChange={handleInputChange}
               className="company-input"
               placeholder="Enter company name in block letters"
+              required
             />
           </div>
         </div>
@@ -146,6 +171,7 @@ const AIIFAMembershipForm = () => {
                   name="factoryDistrict"
                   value={formData.factoryDistrict}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="input-group">
@@ -155,6 +181,7 @@ const AIIFAMembershipForm = () => {
                   name="factoryCity"
                   value={formData.factoryCity}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="input-group">
@@ -164,6 +191,7 @@ const AIIFAMembershipForm = () => {
                   name="factoryPhone"
                   value={formData.factoryPhone}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="input-group">
@@ -173,6 +201,7 @@ const AIIFAMembershipForm = () => {
                   name="factoryPinCode"
                   value={formData.factoryPinCode}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="input-group">
@@ -182,6 +211,7 @@ const AIIFAMembershipForm = () => {
                   name="factoryMobile"
                   value={formData.factoryMobile}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="input-group full-width">
@@ -191,6 +221,7 @@ const AIIFAMembershipForm = () => {
                   name="factoryEmail1"
                   value={formData.factoryEmail1}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="input-group full-width">
@@ -200,6 +231,7 @@ const AIIFAMembershipForm = () => {
                   name="factoryEmail2"
                   value={formData.factoryEmail2}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
             </div>
@@ -440,51 +472,51 @@ const AIIFAMembershipForm = () => {
           </div>
         </div>
 
-        {/* Section 6: Raw Materials */}
-        <div className="form-section">
-          <div className="section-number">6.</div>
-          <div className="section-content">
-            <label className="section-label">RAW MATERIAL USED:</label>
-            <div className="raw-materials-grid">
-              <div className="input-group">
-                <span className="input-label">DRI IRON:</span>
-                <input
-                  type="text"
-                  name="driIron"
-                  value={formData.driIron}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="input-group">
-                <span className="input-label">PELLET IRON:</span>
-                <input
-                  type="text"
-                  name="pelletIron"
-                  value={formData.pelletIron}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="input-group">
-                <span className="input-label">IMPORTED SCRAP:</span>
-                <input
-                  type="text"
-                  name="importedScrap"
-                  value={formData.importedScrap}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="input-group">
-                <span className="input-label">INDIGENEOUS SCRAP:</span>
-                <input
-                  type="text"
-                  name="indigenousScrap"
-                  value={formData.indigenousScrap}
-                  onChange={handleInputChange}
-                />
+          {/* Section 6: Raw Materials */}
+          <div className="form-section">
+            <div className="section-number">6.</div>
+            <div className="section-content">
+              <label className="section-label">RAW MATERIAL USED:</label>
+              <div className="raw-materials-grid">
+                <div className="input-group">
+                  <span className="input-label">DRI IRON:</span>
+                  <input
+                    type="text"
+                    name="driIron"
+                    value={formData.driIron}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="input-group">
+                  <span className="input-label">PELLET IRON:</span>
+                  <input
+                    type="text"
+                    name="pelletIron"
+                    value={formData.pelletIron}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="input-group">
+                  <span className="input-label">IMPORTED SCRAP:</span>
+                  <input
+                    type="text"
+                    name="importedScrap"
+                    value={formData.importedScrap}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="input-group">
+                  <span className="input-label">INDIGENEOUS SCRAP:</span>
+                  <input
+                    type="text"
+                    name="indigenousScrap"
+                    value={formData.indigenousScrap}
+                    onChange={handleInputChange}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
         {/* Section 7: DIN Manufacturer & Pellet Manufacturer */}
         <div className="form-section">
@@ -880,8 +912,14 @@ const AIIFAMembershipForm = () => {
           </button>
         </div>
       </form>
+
+    {successMessage && (
+  <div className="success-toast">
+    {successMessage}
+  </div>
+)}
+
     </div>
   );
 };
-
 export default AIIFAMembershipForm;
